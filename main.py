@@ -7,7 +7,7 @@ from states import KinoADD, Delete
 from aiogram.types import Message, FSInputFile, CallbackQuery
 from base import Kino_Read, Kino_add, Kinolar_Read, Kino_Delete
 from aiogram.fsm.context import FSMContext
-from buttons import tasdiqlash
+from buttons import tasdiqlash, taom, taomlar
 
 logging.basicConfig(level=logging.INFO)
 bot = Bot(token=token)
@@ -129,30 +129,35 @@ async def Kinolar_olami(message: Message):
 
 
 
+""""
+
+Yangi branchga pull request
+
+"""
 
 
 
 
 
 
-# @dp.callback_query(F.data == "taom")
-# async def TaomlarBot(call: CallbackQuery):
-#     rasm = FSInputFile('foof.png')
-#     await call.message.answer_photo(photo="https://t4.ftcdn.net/jpg/02/86/17/89/360_F_286178925_8zk89O9uC5JJVPvqhvBMUpaRxp8AFXzD.jpg", caption="Birini tanlang!!!", reply_markup=taomlar.as_markup())
+@dp.callback_query(F.data == "taom")
+async def TaomlarBot(call: CallbackQuery):
+    rasm = FSInputFile('foof.png')
+    await call.message.answer_photo(photo="https://t4.ftcdn.net/jpg/02/86/17/89/360_F_286178925_8zk89O9uC5JJVPvqhvBMUpaRxp8AFXzD.jpg", caption="Birini tanlang!!!", reply_markup=taomlar.as_markup())
 
 
-# @dp.callback_query(F.data == "ichimlik")
-# async def IchimliklarBot(call: CallbackQuery):
-#     await call.answer("Ichimliklar bo'limi bosh")
+@dp.callback_query(F.data == "ichimlik")
+async def IchimliklarBot(call: CallbackQuery):
+    await call.answer("Ichimliklar bo'limi bosh")
     
 
 
-# @dp.callback_query(F.data == "zakaz")
-# async def ZakazlarBot(call: CallbackQuery):
-#     user_id = call.from_user.id
-#     user = call.from_user.first_name
-#     print("ism", user, "user id", user_id)
-#     await call.answer("Zakaz bera olmaysiz", show_alert=True)
+@dp.callback_query(F.data == "zakaz")
+async def ZakazlarBot(call: CallbackQuery):
+    user_id = call.from_user.id
+    user = call.from_user.first_name
+    print("ism", user, "user id", user_id)
+    await call.answer("Zakaz bera olmaysiz", show_alert=True)
 
 
 async def main():
