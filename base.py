@@ -19,25 +19,11 @@ def Kino_Delete(id):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 def Kinolar_Read():
     try:
         con = connect("kino.db")
         cursor = con.cursor()
-        cursor.execute(f"select *
-                       
-                       from KINOLAR")
+        cursor.execute(f"select * from KINOLAR")
         a = cursor.fetchall()
         cursor.close()
         return a
