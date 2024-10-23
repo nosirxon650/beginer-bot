@@ -57,7 +57,7 @@ async def get_not_ban_chat(message: Message):
    await message.answer(f"Siz endi yoza olasiz\n🆗 {message.reply_to_message.from_user.full_name}")
 
 
-@dp.message(F.chat.type == "supergroup",`` and_f(F.text == "ban", F.reply_to_message))
+@dp.message(F.chat.type == "supergroup", and_f(F.text == "ban", F.reply_to_message))
 async def get_bann_chat(message: types.Message):
    user_id = message.reply_to_message.from_user.id
    await message.chat.ban_sender_chat(user_id)
